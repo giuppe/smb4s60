@@ -28,17 +28,8 @@ import nmb
 from random import randint
 from struct import *
 
-# Try to load amkCrypto's DES module to perform password encryption if required.
-try:
-    from Crypto.Cipher import DES
-    amk_crypto = 1
-except ImportError:
-    # Try to load mxCrypto's DES module to perform password encryption if required.
-    try:
-        from Crypto.Ciphers import DES
-        amk_crypto = 0
-    except ImportError:
-        DES = None
+amk_crypto = 0
+from pyDes import des as DES
 
 try:
     from cStringIO import StringIO
